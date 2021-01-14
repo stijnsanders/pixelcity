@@ -18,7 +18,6 @@
 #include <windows.h>
 #include <gl\gl.h>
 #include <gl\glu.h>
-#include <gl\glaux.h>
 #include <math.h>
 #include <time.h>
 #include <vector>
@@ -410,7 +409,7 @@ static void do_reset (void)
   float     west_street, north_street, east_street, south_street;
 
   //Re-init Random to make the same city each time. Helpful when running tests.
-  RandomInit (6);
+  //RandomInit (6);
   reset_needed = false;
   broadway_done = false;
   skyscrapers = 0;
@@ -506,7 +505,7 @@ static void do_reset (void)
   
   //Scan over the center area of the map and place the big buildings 
   attempts = 0;
-   while (skyscrapers < 50 && attempts < 350) {
+   while (skyscrapers < 70 && attempts < 350) {
     x = (WORLD_HALF / 2) + (RandomVal () % WORLD_HALF);
     y = (WORLD_HALF / 2) + (RandomVal () % WORLD_HALF);
     if (!claimed (x, y, 1,1)) {
@@ -515,7 +514,7 @@ static void do_reset (void)
     }
     attempts++;
   }
-  
+
   //now blanket the rest of the world with lesser buildings
   for (x = 0; x < WORLD_SIZE; x ++) {
     for (y = 0; y < WORLD_SIZE; y ++) {

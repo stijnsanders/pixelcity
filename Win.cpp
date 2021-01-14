@@ -10,7 +10,7 @@
 
 -----------------------------------------------------------------------------*/
 
-#define MOUSE_MOVEMENT          0.5f
+#define MOUSE_MOVEMENT          0.2f
 
 #include <windows.h>
 #include <math.h>
@@ -387,8 +387,8 @@ LONG WINAPI ScreenSaverProc(HWND hwnd_in,UINT message,WPARAM wparam,LPARAM lpara
       mouse_forced = false;
     } else if (rmb || lmb) {
       CenterCursor ();
-      delta_x = (float)(mouse_pos.x - p.x) * MOUSE_MOVEMENT;
-      delta_y = (float)(mouse_pos.y - p.y) * MOUSE_MOVEMENT;
+      delta_x = (float)(mouse_pos.x - p.x) * -MOUSE_MOVEMENT;
+      delta_y = (float)(mouse_pos.y - p.y) *  MOUSE_MOVEMENT;
       if (rmb && lmb) {
         GLvector    pos;
         CameraPan (delta_x);

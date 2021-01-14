@@ -23,6 +23,7 @@
 #include "glTypes.h"
 #include "Mesh.h"
 
+
 /*-----------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------*/
@@ -33,7 +34,6 @@ CMesh::CMesh ()
   _list = glGenLists(1);
   _compiled = false;
   _polycount = 0;
-
 }
 
 /*-----------------------------------------------------------------------------
@@ -119,7 +119,8 @@ void CMesh::Render ()
   }
   for (qsi = _quad_strip.begin(); qsi < _quad_strip.end(); ++qsi) {
     glBegin (GL_QUAD_STRIP);
-    for (n = qsi->index_list.begin(); n < qsi->index_list.end(); ++n) {
+    for (n = qsi->index_list.begin(); n < qsi->index_list.end(); ++n) 
+    {
       glTexCoord2fv (&_vertex[*n].uv.x);
       glVertex3fv (&_vertex[*n].position.x);
     }

@@ -272,6 +272,7 @@ void CBuilding::ConstructRoof (float left, float right, float front, float back,
   depth = (int)(back - front);
   height = 5 - _roof_tiers;
   logo_offset = 0.2f;
+  addon = ADDON_NONE;
   //See if this building is special and worthy of fancy roof decorations.
   if (bottom > 35.0f)
     addon = RandomVal (ADDON_COUNT);
